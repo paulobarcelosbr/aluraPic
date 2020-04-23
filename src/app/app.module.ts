@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { PhotosModule } from './photos/photos.module';
 import { ErrorsModule } from './errors/errors.module';
 import { HomeModule } from './home/home.module';
+import { CoreModel } from './core/core.module';
 
 
 
@@ -18,7 +19,8 @@ import { HomeModule } from './home/home.module';
     AppRoutingModule,
     PhotosModule,
     ErrorsModule,
-    HomeModule
+    HomeModule,
+    CoreModel
   ],
   providers: [],
   bootstrap: [AppComponent]
