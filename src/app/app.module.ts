@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app.routing.module';
 import { AppComponent } from './app.component';
 import { PhotosModule } from './photos/photos.module';
 import { ErrorsModule } from './errors/errors.module';
-import { HomeModule } from './home/home.module';
 import { CoreModel } from './core/core.module';
 
 
@@ -16,11 +15,10 @@ import { CoreModel } from './core/core.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     PhotosModule,
     ErrorsModule,
-    HomeModule,
-    CoreModel
+    CoreModel,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

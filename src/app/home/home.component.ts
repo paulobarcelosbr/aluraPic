@@ -3,12 +3,9 @@ import { Component, OnInit } from '@angular/core';
 @Component({
     templateUrl:'./home.component.html'
 })
-export class HomeComponent implements OnInit{
+export class HomeComponent {
 
     constructor(){}
-    
-    ngOnInit(): void {
-        throw new Error("Method not implemented.");
-    }
+   
 
 }

@@ -18,6 +18,9 @@ export class SigninComponent implements OnInit{
         private router: Router,
         private plataformDetectorService: PlataformDetectorService
     ){ }
+    ngAfterViewInit():void{
+        this.plataformDetectorService.isPlataformBrowser() && this.userNameInput.nativeElement.focus();
+    }
     ngOnInit(): void {
         this.loginForm = this.formBuilder.group({
             userName: ['',Validators.required],
