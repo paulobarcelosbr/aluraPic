@@ -9,16 +9,8 @@
           <p class="text-left break-word">{{photo.description}}</p>
           <hr>
         </small>
-        <div class="mt-4">
-          <form>
-            <div class="input-group">
-              <textarea class="form-control"></textarea>
-              <div class="input-group-append">
-                <button class="btn btn-primary pull-left">Publish</button>
-              </div>
-            </div>
-          </form>
-        </div>
+        <ap-photo-comments *ngIf="photo.allowComments; else warnning" [photoId]="photoId"></ap-photo-comments>
+        <ng-template #warnning><p> User has disabled comments for this photo </p></ng-template>
       </div>
     </div>
   </div>
