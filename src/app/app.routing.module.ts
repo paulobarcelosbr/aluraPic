@@ -40,10 +40,13 @@ const routes: Routes = [
     path: 'p/:photoId', 
     component: PhotoDetailsComponent,
  },
-  
+ { 
+    path: 'not-found',
+    component: NotFoundComponent 
+  },
   { 
     path: '**',
-    component: NotFoundComponent 
+    redirectTo: 'not-found' 
   },
 ]
 @NgModule({
