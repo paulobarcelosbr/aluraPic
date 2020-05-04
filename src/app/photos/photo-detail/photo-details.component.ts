@@ -44,5 +44,13 @@ export class PhotoDetailsComponent implements OnInit{
             this.alertService.warning('Could not Delete the Photo!')
         });
     }
+    like(photo: Photo){
+        this.photoSevice.like(photo.id)
+        .subscribe(liked => {
+            if(liked){
+                this.photo$ = this.photoSevice.findById(photo.id);
+            }
+        })
+    }
 }
 
