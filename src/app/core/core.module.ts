@@ -6,6 +6,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RequestInterceptor } from './auth/request.interceptor';
 import { FooterComponent } from './footer/footer.component';
 import { AlertModule } from '../shared/componnents/alert/alert.module';
+import { menuModule } from '../shared/componnents/menu/menu.module';
+import { ShowIfLoggedModule } from '../shared/directives/show-if-logged/show-if-logged.module';
 
 @NgModule({
     declarations:[
@@ -19,7 +21,9 @@ import { AlertModule } from '../shared/componnents/alert/alert.module';
     imports:[
         CommonModule,
         RouterModule,
-        AlertModule
+        AlertModule,
+        menuModule,
+        ShowIfLoggedModule
     ],
     providers: [
         {

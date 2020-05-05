@@ -125,6 +125,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "alurapic"
+    }
+  },
+  "defaultProject": "alurapic",
+  "cli": {
+    "analytics": "40903a2d-f968-4c28-8403-1e0f6f12e753"
+  }
 }
