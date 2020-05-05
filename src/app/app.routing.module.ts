@@ -7,6 +7,7 @@ import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { PhotoListResolve } from './photos/photo-list/photolist.resolve';
 import { AuthGuard } from './core/auth/auth.guard';
 import { PhotoDetailsComponent } from './photos/photo-detail/photo-details.component';
+import { GlobalErrorComponent } from './errors/global-error/globa-error.component';
 
 
 
@@ -54,6 +55,13 @@ const routes: Routes = [
     component: NotFoundComponent,
     data:{
       title: 'Not-Found'
+    }
+  },
+  { 
+    path: 'error',
+    component: GlobalErrorComponent,
+    data:{
+      title: 'Error'
     }
   },
   { 
