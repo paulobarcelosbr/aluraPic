@@ -1,7 +1,7 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/core/auth/auth.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { PlataformDetectorService } from 'src/app/core/plataform-detector/plataform-detector.service';
 
 @Component({
@@ -9,6 +9,7 @@ import { PlataformDetectorService } from 'src/app/core/plataform-detector/plataf
 })
 export class SigninComponent implements OnInit{
 
+    fromUrl: string;
     loginForm: FormGroup;
     @ViewChild('userNameInput') userNameInput: ElementRef<HTMLInputElement>;
     
@@ -16,12 +17,15 @@ export class SigninComponent implements OnInit{
         private formBuilder: FormBuilder,
         private authService: AuthService,
         private router: Router,
-        private plataformDetectorService: PlataformDetectorService
+        private plataformDetectorService: PlataformDetectorService,
+        private activateRoute: ActivatedRoute
     ){ }
     ngAfterViewInit():void{
         this.plataformDetectorService.isPlataformBrowser() && this.userNameInput.nativeElement.focus();
     }
     ngOnInit(): void {
+        this.activateRoute.queryParams.subscribe(params => this.fromUrl = params.fromUrl);
+
         this.loginForm = this.formBuilder.group({
             userName: ['',Validators.required],
             password: ['',Validators.required],
@@ -34,7 +38,9 @@ export class SigninComponent implements OnInit{
         this.authService
             .Authenticate(userName,password)
             .subscribe(
-                ()=> this.router.navigate(['user',userName]),
+                ()=>  this.fromUrl
+                        ? this.router.navigateByUrl(this.fromUrl)
+                        : this.router.navigate(['user',userName]),                   
                 err =>{  
                     console.log(err);
                     this.loginForm.reset();
@@ -42,5 +48,4 @@ export class SigninComponent implements OnInit{
                 }
             );
     }
-
 }
